@@ -5,8 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Data
-@Component
-@ConfigurationProperties("custom")
+//@Component
+//@ConfigurationProperties("custom")
 public class ApplicationPropertiesConf {
     private String host;
     private String port;

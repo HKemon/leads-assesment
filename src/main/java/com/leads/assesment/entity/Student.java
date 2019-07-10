@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -23,11 +25,16 @@ public class Student implements Serializable {
     private long id;
 
     @Size(min = 4, message = "Name has to be at least 4 character long")
+    @NotNull(message = "Name cannot be null")
     private String name;
 
+    private int age;
+
     @Size(min = 10, message = "Address has to be at least 10 character long")
+    @NotNull(message = "Address cannot be null")
     private String address;
 
     @Past(message = "Date of Birth has to be past")
+    @NotNull(message = "Birthdate cannot be null")
     private Date dateOfBirth;
 }

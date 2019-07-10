@@ -3,6 +3,7 @@ package com.leads.assesment.conf;
 import com.leads.assesment.comp.ApplicationPropertiesConf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -30,11 +31,17 @@ public class DtabaseConf {
     @Autowired
     private ApplicationPropertiesConf applicationPropertiesConf;
 
+    @Bean
+    @ConfigurationProperties(prefix = "custom")
+    public ApplicationPropertiesConf propertiesConfig () {
+        return new ApplicationPropertiesConf();
+    }
+
     @Bean(name = "dataSource")
     public DataSource dataSource() {
         return DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://" + applicationPropertiesConf.getHost() + ":" + applicationPropertiesConf.getPort() + "/leads_assesment?useSSL=false")
+                .url("jdbc:mysql://" + applicationPropertiesConf.getHost() + ":" + applicationPropertiesConf.getPort() + "/leads_assesment")
                 .username(applicationPropertiesConf.getUsername())
                 .password(applicationPropertiesConf.getPassword())
                 .build();
