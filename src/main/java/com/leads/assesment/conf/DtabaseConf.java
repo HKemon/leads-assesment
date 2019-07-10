@@ -40,7 +40,7 @@ public class DtabaseConf {
     public DataSource dataSource() {
         return DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://" + applicationPropertiesConf.getHost() + ":" + applicationPropertiesConf.getPort() + "/leads_assesment")
+                .url("jdbc:mysql://" + applicationPropertiesConf.getHost() + ":" + applicationPropertiesConf.getPort() + "/"+applicationPropertiesConf.getDatabase())
                 .username(applicationPropertiesConf.getUsername())
                 .password(applicationPropertiesConf.getPassword())
                 .build();

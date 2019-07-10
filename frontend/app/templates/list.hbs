@@ -1,0 +1,35 @@
+{{outlet}}
+<div class="jumbotron" style="background: #0F9D58; color: #fff; padding-top: 20px; padding-bottom: 20px">
+  <h3 class="text-center bold">Student Information Database</h3>
+</div>
+<div class="container">
+  {{#link-to "new" class="btn btn-lg btn-success"}}
+    <i class="fas fa-plus"></i>Add New Student
+  {{/link-to}}
+  <br>
+  <h4 style="margin-top: 25px">Student List</h4>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>address</th>
+      <th>Date of Birth</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each this.model as |list|}}
+      <tr>
+        <td>{{list.id}}</td>
+        <td>{{list.name}}</td>
+        <td>{{list.address}}</td>
+        <td>{{list.dob}}</td>
+        <td>  {{#link-to "edit" class="btn btn-sm btn-primary"}}
+          Edit
+        {{/link-to}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>
