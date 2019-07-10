@@ -34,6 +34,6 @@ public class Student implements Serializable {
     private String address;
 
     @Past(message = "Date of Birth has to be past")
-    @NotNull(message = "Birthdate cannot be null")
+    @NotNull(message = "Birth date cannot be null")
     private Date dateOfBirth;
 }

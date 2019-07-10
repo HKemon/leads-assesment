@@ -5,9 +5,25 @@ export default Controller.extend({
         newStudent: function () {
             let name = this.get("name");
             let address = this.get("address");
-            let dob = this.get("dob");
-            console.log(name);
-            alert(name);
+            let dateOfBirth = this.get("dob");
+
+            console.log(dateOfBirth);
+
+            let newStudent = this.store.createRecord('new', {
+                name: name,
+                address: address,
+                dateOfBirth: new Date(dateOfBirth).toDateString()
+            });
+
+            newStudent.save();
+
+            this.setProperties({
+                name: '',
+                address: '',
+                dateOfBirth: ''
+            });
+
+            console.log(name + ' ' + address + ' ' + dateOfBirth);
         }
     }
 });
