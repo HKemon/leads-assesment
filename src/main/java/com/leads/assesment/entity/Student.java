@@ -19,6 +19,6 @@ public class Student implements Serializable {
 
     private long id;
     private String name;
-    private int age;
     private String address;
+    private int dateOfBirth;
 }
