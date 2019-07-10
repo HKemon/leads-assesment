@@ -4,12 +4,10 @@ import com.leads.assesment.entity.Student;
 import com.leads.assesment.exceptions.EntityNotFound;
 import com.leads.assesment.repo.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.persistence.EntityManager;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
