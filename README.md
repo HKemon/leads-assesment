@@ -1,12 +1,26 @@
 ## How to run it with Docker
 
-`mvn clean package`
-
 ## Run MySQL in Docker container:
 
 `docker run --name students-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=leads_assesment -e MYSQL_USER=emon -e MYSQL_PASSWORD=emon -d mysql`
 
 wait until students-mysql fully run
+
+Then find out on which host students-mysql is running. then change the `custom.host` from application.properties file
+
+You can see the host by the following command
+
+`docker inspect students-mysql` 
+
+From `Networks > IPAddress`
+
+For my case it was `172.17.0.2`
+
+(I found in internet that they use the container name but it did not work for me.)
+
+## Then create the jar file 
+
+`mvn clean package`
 
 ## Build docker file
 
