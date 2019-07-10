@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Table(name = "students")
@@ -14,11 +17,17 @@ import java.io.Serializable;
 @Entity
 public class Student implements Serializable {
     private static final long serialVersionUID = 152356L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
+
+    @Size(min = 4, message = "Name has to be at least 4 character long")
     private String name;
+
+    @Size(min = 10, message = "Address has to be at least 10 character long")
     private String address;
-    private int dateOfBirth;
+
+    @Past(message = "Date of Birth has to be past")
+    private Date dateOfBirth;
 }
