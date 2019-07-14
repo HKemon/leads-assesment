@@ -11,6 +11,10 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
+/*
+ * Stores the Values of Student object
+ */
+
 @Data
 @Table(name = "students")
 @AllArgsConstructor

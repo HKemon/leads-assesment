@@ -19,6 +19,10 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Used to initialize database configuration
+ */
+
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(

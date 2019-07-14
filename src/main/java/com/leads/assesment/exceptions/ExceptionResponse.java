@@ -5,9 +5,12 @@ import lombok.Data;
 
 import java.util.Date;
 
+/*
+ * Customize the Exception Response
+ */
 @Data
 @AllArgsConstructor
-public class ExceptionResponse {
+class ExceptionResponse {
     private Date timeStamp;
     private String message;
     private String details;
